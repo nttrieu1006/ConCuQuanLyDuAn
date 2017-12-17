@@ -37,5 +37,42 @@ namespace CongNghePhanMem.Controllers
             var km = cn.KhuyenMais.ToList().OrderBy(n => n.MaKM).ToPagedList(pageNumber,pageSize);
             return View(km);
         }
+        [HttpGet]
+
+        public ActionResult ThemKM()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemKM(KhuyenMai km, HttpPostedFileBase fileupload)
+        {
+            if (ModelState.IsValid)
+            {
+
+                var fileName = Path.GetFileName(fileupload.FileName);
+                var path = Path.Combine(Server.MapPath("~/image/KhuyenMai"), fileName);
+                if (System.IO.File.Exists(path))
+                {
+                    ViewBag.ThongBao = "Hình ảnh đã tồn tại...";
+                    SetAlert("Hình ảnh đã tồn tại", "warning");
+                }
+                else
+                {
+                    fileupload.SaveAs(path);
+                    KhuyenMai km1 = new KhuyenMai();
+                    km1.TenKM = km.TenKM;
+                    km1.NgayBatDau = km.NgayBatDau;
+                    km1.NgayKetThuc = km.NgayKetThuc;
+                    km1.AnhKM = fileName;
+                    km1.NoiDung = km.NoiDung;
+                    cn.KhuyenMais.Add(km1);
+                    cn.SaveChanges();
+                    SetAlert("Thêm thành công!", "success");
+                }
+
+            }
+            return RedirectToAction("KhuyenMai");
+        }
     }
 }
