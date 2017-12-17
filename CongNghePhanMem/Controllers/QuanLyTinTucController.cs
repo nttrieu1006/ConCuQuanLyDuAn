@@ -38,5 +38,32 @@ namespace CongNghePhanMem.Controllers
             var pn = cn.PhanHois.Where(n => n.TraLoi == null).ToList().OrderBy(n => n.MaPH).ToPagedList(pageNumber, pageSize);
             return View(pn);
         }
+        [HttpGet]
+        [ValidateInput(false)]
+        public ActionResult TraLoi(int MaPH = 0)
+        {
+            PhanHoi ph = cn.PhanHois.SingleOrDefault(n => n.MaPH == MaPH);
+            return View(ph);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult TraLoi(PhanHoi ph)
+        {
+            if (ModelState.IsValid)
+            {
+                PhanHoi ph1 = cn.PhanHois.SingleOrDefault(n => n.MaPH == ph.MaPH);
+                if (ph1 == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                ph1.TraLoi = ph.TraLoi.ToString();
+                cn.SaveChanges();
+                SetAlert("Trả lời thành công!", "success");
+            }
+            return RedirectToAction("YKien", "QuanLyTinTuc");
+
+
+        }
     }
 }
