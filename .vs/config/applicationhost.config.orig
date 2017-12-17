@@ -165,10 +165,10 @@
                     <!-- <virtualDirectory path="/" physicalPath="C:\Users\DELL\Desktop\ConCuQuanLyDuAn\CongNghePhanMem" /> -->
                     <!-- <virtualDirectory path="/" physicalPath="C:\Users\USER\Desktop\CONGCU\ConCuQuanLyDuAn\CongNghePhanMem" /> -->
 <<<<<<< HEAD
-                    <virtualDirectory path="/" physicalPath="C:\Users\Hue\Desktop\vy\ConCuQuanLyDuAn\CongNghePhanMem" />
+                    <virtualDirectory path="/" physicalPath="C:\Users\Hue\Desktop\trieuvy\ConCuQuanLyDuAn\CongNghePhanMem" />
 =======
-                    <virtualDirectory path="/" physicalPath="C:\Users\USER\Desktop\CONGCU\ConCuQuanLyDuAn\CongNghePhanMem" />
->>>>>>> 02baa514867ddf21e666830f79202a6882373d71
+                    <virtualDirectory path="/" physicalPath="C:\Users\USER\Desktop\New folder\ConCuQuanLyDuAn\CongNghePhanMem" />
+>>>>>>> 8d2476d242eb0fae38126f78529ba33cae0075ec
                 </application>
                 <bindings>
                     <binding protocol="http" bindingInformation="*:51138:localhost" />

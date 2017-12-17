@@ -170,6 +170,13 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ChuDeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoaiSachController.cs" />
+    <Compile Include="Controllers\NguoiDungController.cs" />
+    <Compile Include="Controllers\NXBController.cs" />
+    <Compile Include="Controllers\SachController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\TacGiaController.cs" />
+    <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="QuanLyKhuyenMaiController.cs" />
     <Compile Include="Controllers\QuanLyNguoiDungController.cs" />
     <Compile Include="Controllers\QuanLyNhaCungCapController.cs" />
@@ -1563,14 +1570,23 @@
     <Content Include="Views\QuanLyTinTuc\YKien.cshtml" />
     <Content Include="Views\QuanLySach\ChuDe.cshtml" />
     <Content Include="Views\QuanLySach\ThemCD.cshtml" />
+    <Content Include="Views\Search\KetQuaSearch.cshtml" />
+    <Content Include="Views\TinTuc\TinTucPartial.cshtml" />
+    <Content Include="Views\TinTuc\TinTuc.cshtml" />
+    <Content Include="Views\TacGia\TenTacGiaPartial.cshtml" />
+    <Content Include="Views\TacGia\SachTheoTacGia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="templatebackend\bower_components\bootstrap-tour\build\" />
     <Folder Include="Views\ChuDe\" />
+    <Folder Include="Views\LoaiSach\" />
+    <Folder Include="Views\NguoiDung\" />
+    <Folder Include="Views\NXB\" />
     <Folder Include="Views\QuanLyKhuyenMai\" />
     <Folder Include="Views\QuanLyNguoiDung\" />
     <Folder Include="Views\QuanLyNhaCungCap\" />
+    <Folder Include="Views\Sach\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
