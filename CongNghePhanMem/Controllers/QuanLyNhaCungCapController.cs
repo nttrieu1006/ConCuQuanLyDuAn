@@ -37,5 +37,29 @@ namespace CongNghePhanMem.Controllers
             var ncc = cn.NhaCungCaps.ToList().OrderBy(n => n.MaNCC).ToPagedList(pageNumber, pageSize);
             return View(ncc);
         }
-    } 
+        //Thêm mới
+        [HttpGet]
+        public ActionResult ThemNCC()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemNCC(NhaCungCap ncc)
+        {
+            if (ModelState.IsValid)
+            {
+                NhaCungCap ncc1 = new NhaCungCap();
+                ncc1.TenNCC = ncc.TenNCC;
+                ncc1.DiaChi = ncc.DiaChi;
+                ncc1.SDT = ncc.SDT;
+                ncc1.Email = ncc.Email;
+                cn.NhaCungCaps.Add(ncc1);
+                cn.SaveChanges();
+                SetAlert("Thêm thành công!", "success");
+
+            }
+            return RedirectToAction("NhaCungCap", "QuanLyNhaCungCap");
+        }
+    }   
 }
