@@ -96,5 +96,10 @@ namespace CongNghePhanMem.Controllers
             return View();
 
         }
+        public ActionResult TheNganHang()
+        {
+            List<GiaoDien> gd = cn.GiaoDiens.Where(n => n.sys_del == true).ToList();
+            return View(gd);
+        }
     }
 }
