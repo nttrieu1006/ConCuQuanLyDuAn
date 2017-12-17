@@ -1569,6 +1569,7 @@
     <Content Include="Views\Search\KetQuaSearch.cshtml" />
     <Content Include="Views\TinTuc\TinTucPartial.cshtml" />
     <Content Include="Views\TinTuc\TinTuc.cshtml" />
+    <Content Include="Views\TacGia\TenTacGiaPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1577,7 +1578,6 @@
     <Folder Include="Views\QuanLyKhuyenMai\" />
     <Folder Include="Views\QuanLyNguoiDung\" />
     <Folder Include="Views\QuanLyNhaCungCap\" />
-    <Folder Include="Views\TacGia\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
