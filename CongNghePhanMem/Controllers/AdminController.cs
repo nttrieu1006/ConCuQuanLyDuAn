@@ -62,5 +62,10 @@ namespace CongNghePhanMem.Controllers
             return View();
 
         }
+        public ActionResult LogOut()
+        {
+            Session["TenDangNhap"] = null;
+            return RedirectToAction("LoginAdmin", "Admin");
+        }
     }
 }
