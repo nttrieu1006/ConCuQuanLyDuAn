@@ -1585,11 +1585,11 @@
     <Content Include="Views\DonHang\DonHang.cshtml" />
     <Content Include="Views\DonHang\DonHangDD.cshtml" />
     <Content Include="Views\DonHang\SuaDH.cshtml" />
+    <Content Include="Views\GiaoDien\DiaChi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="templatebackend\bower_components\bootstrap-tour\build\" />
-    <Folder Include="Views\GiaoDien\" />
     <Folder Include="Views\GioHang\" />
     <Folder Include="Views\LoaiSach\" />
     <Folder Include="Views\NguoiDung\" />
