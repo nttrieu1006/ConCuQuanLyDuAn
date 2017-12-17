@@ -34,5 +34,12 @@ namespace CongNghePhanMem.Controllers
                 TempData["AlertType"] = "alert-danger";
             }
         }
+        public ActionResult ChuDe(int? page)
+        {
+            int pageSize = 25;
+            int pageNumber = (page ?? 1);
+            var cd = cn.ChuDes.ToList().OrderBy(n => n.TenChuDe).ToPagedList(pageNumber, pageSize);
+            return View(cd);
+        }
     }
 }
