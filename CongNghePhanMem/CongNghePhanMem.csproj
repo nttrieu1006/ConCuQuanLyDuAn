@@ -1584,6 +1584,7 @@
     <Content Include="Views\DonHang\ChiTietDHDD.cshtml" />
     <Content Include="Views\DonHang\DonHang.cshtml" />
     <Content Include="Views\DonHang\DonHangDD.cshtml" />
+    <Content Include="Views\DonHang\SuaDH.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
