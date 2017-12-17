@@ -101,5 +101,56 @@ namespace CongNghePhanMem.Controllers
             List<GiaoDien> gd = cn.GiaoDiens.Where(n => n.sys_del == true).ToList();
             return View(gd);
         }
+        [HttpGet]
+        public ActionResult ThemThe()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemThe(GiaoDien gd)
+        {
+            if (ModelState.IsValid)
+            {
+                GiaoDien gd1 = new GiaoDien();
+                gd1.ThuocTinh = gd.ThuocTinh;
+                gd1.GiaTri = gd.GiaTri;
+                gd1.GiaTri1 = gd.GiaTri1;
+                gd1.GiaTri2 = gd.GiaTri2;
+                gd1.sys_del = true;
+                cn.GiaoDiens.Add(gd1);
+                cn.SaveChanges();
+                SetAlert("Thêm thẻ ngân hàng thành công!", "success");
+            }
+            return RedirectToAction("TheNganHang", "Admin");
+        }
+        [HttpGet]
+        public ActionResult SuaThe(int ID = 0)
+        {
+            GiaoDien gd = cn.GiaoDiens.SingleOrDefault(n => n.ID == ID);
+            if (gd == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+
+            }
+            return View(gd);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaThe(GiaoDien gd)
+        {
+            if (ModelState.IsValid)
+            {
+                GiaoDien gd1 = cn.GiaoDiens.SingleOrDefault(n => n.ID == gd.ID);
+                gd1.ThuocTinh = gd.ThuocTinh;
+                gd1.GiaTri = gd.GiaTri;
+                gd1.GiaTri1 = gd.GiaTri1;
+                gd1.GiaTri2 = gd.GiaTri2;
+                cn.SaveChanges();
+                SetAlert("Sửa thẻ ngân hàng thành công!", "success");
+            }
+            return RedirectToAction("TheNganHang", "Admin");
+        }
     }
 }
