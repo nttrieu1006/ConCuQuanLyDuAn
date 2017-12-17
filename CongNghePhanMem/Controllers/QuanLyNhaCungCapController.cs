@@ -61,5 +61,34 @@ namespace CongNghePhanMem.Controllers
             }
             return RedirectToAction("NhaCungCap", "QuanLyNhaCungCap");
         }
+        //Sửa nhà cung cấp
+        [HttpGet]
+        public ActionResult SuaNCC(int MaNCC = 0)
+        {
+            NhaCungCap ncc = cn.NhaCungCaps.SingleOrDefault(n => n.MaNCC == MaNCC);
+            return View(ncc);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaNCC(NhaCungCap ncc)
+        {
+            if (ModelState.IsValid)
+            {
+                NhaCungCap ncc1 = cn.NhaCungCaps.SingleOrDefault(n => n.MaNCC == ncc.MaNCC);
+                if (ncc1 == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                ncc1.TenNCC = ncc.TenNCC;
+                ncc1.DiaChi = ncc.DiaChi;
+                ncc1.SDT = ncc.SDT;
+                ncc1.Email = ncc.Email;
+                cn.SaveChanges();
+                SetAlert("SuaThanhCong", "success");
+            }
+            return RedirectToAction("NhaCungCap", "QuanLyNhaCungCap");
+
+        }
     }   
 }
