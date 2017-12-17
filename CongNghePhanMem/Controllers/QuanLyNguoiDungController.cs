@@ -44,5 +44,17 @@ namespace CongNghePhanMem.Controllers
         {
             return View();
         }
+        [HttpPost]
+        //[ValidateInput(false)]
+        public ActionResult Them(TinhTrangNguoiDung nd)
+        {
+            if (ModelState.IsValid)
+            {
+                cn.TinhTrangNguoiDungs.Add(nd);
+                cn.SaveChanges();
+                SetAlert("Thêm thành công!", "success");
+            }
+            return RedirectToAction("TinhTrang", "QuanLyNguoiDung");
+        }
     }
 }
