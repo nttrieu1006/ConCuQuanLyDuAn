@@ -74,5 +74,12 @@ namespace CongNghePhanMem.Controllers
             }
             return RedirectToAction("TinhTrang", "QuanLyNguoiDung");
         }
+        public ActionResult NguoiDung(int? page)
+        {
+            int pageSize = 20;
+            int pageNumber = (page ?? 1);
+            var nd = cn.NguoiDungs.ToList().OrderBy(n => n.TenDangNhap).ToPagedList(pageNumber, pageSize);
+            return View(nd);
+        }
     }
 }
