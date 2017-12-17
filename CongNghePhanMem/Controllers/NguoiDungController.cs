@@ -51,6 +51,31 @@ namespace CongNghePhanMem.Controllers
             }
             return null;
         }
-    }
+        [HttpGet]
+        public ActionResult DangKy()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult DangKy(NguoiDung nd, string Command)
+        {
+            if (Command == "Đăng Ký")
+            {
+                NguoiDung nd1 = new NguoiDung();
+                nd1.TenDangNhap = nd.TenDangNhap;
+                nd1.MatKhau = nd.MatKhau;
+                nd1.HoTen = nd.HoTen;
+                nd1.Email = nd.Email;
+                nd1.SDT = nd.SDT;
+                nd1.AnhDaiDien = "noavatar.jpg";
+                nd1.MaTT = 2;
+                cn.NguoiDungs.Add(nd1);
+                cn.SaveChanges();
+                SetAlert("Đăng ký thành công, vui lòng đăng nhập", "success");
+            }
+            return View();
+        }   
+        
     }
 }
