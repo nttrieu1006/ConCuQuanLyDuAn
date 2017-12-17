@@ -98,5 +98,28 @@ namespace CongNghePhanMem.Controllers
             }
             return View(sach);
         }
+        public ViewResult ChiTietKhuyenMai(int MaKM = 0)
+        {
+            KhuyenMai km = cn.KhuyenMais.SingleOrDefault(n => n.MaKM == MaKM);
+            if (km == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(km);
+        }
+        public ViewResult SachThuocKM(int? page, int MaKM = 0)
+        {
+            int pageSize = 18;
+            int pageNumber = (page ?? 1);
+            KhuyenMai km = cn.KhuyenMais.SingleOrDefault(n => n.MaKM == MaKM);
+            if (km == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            var lst = cn.ChiTietKhuyenMais.Where(n => n.MaKM == MaKM).ToList().OrderBy(n => n.MaSach).ToPagedList(pageNumber, pageSize);
+            return View(lst);
+        }
     }
 }
