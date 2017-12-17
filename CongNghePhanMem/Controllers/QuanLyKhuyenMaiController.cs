@@ -74,5 +74,30 @@ namespace CongNghePhanMem.Controllers
             }
             return RedirectToAction("KhuyenMai");
         }
+        public ActionResult XoaKM(int MaKM = 0)
+        {
+            if (ModelState.IsValid)
+            {
+                ChiTietKhuyenMai ct = cn.ChiTietKhuyenMais.FirstOrDefault(n => n.MaKM == MaKM);
+                if (ct != null)
+                {
+                    SetAlert("Tồn tại sách thuộc khuyến mãi này!", "warning");
+                }
+                else
+                {
+                    KhuyenMai km = cn.KhuyenMais.SingleOrDefault(n => n.MaKM == MaKM);
+                    if (km == null)
+                    {
+                        Response.StatusCode = 404;
+                        return null;
+                    }
+                    cn.KhuyenMais.Remove(km);
+                    cn.SaveChanges();
+                    SetAlert("Xóa thành công!", "success");
+                }
+
+            }
+            return RedirectToAction("KhuyenMai");
+        }
     }
 }
