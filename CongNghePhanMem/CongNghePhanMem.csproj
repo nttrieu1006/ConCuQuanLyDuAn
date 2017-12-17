@@ -1579,6 +1579,7 @@
     <Content Include="Views\TacGia\TenTacGiaPartial.cshtml" />
     <Content Include="Views\TacGia\SachTheoTacGia.cshtml" />
     <Content Include="Views\ChuDe\ChuDePartial.cshtml" />
+    <Content Include="Views\ChuDe\SachTheoChuDe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
