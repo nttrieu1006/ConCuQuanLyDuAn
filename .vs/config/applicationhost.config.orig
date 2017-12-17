@@ -162,17 +162,13 @@
             </site>
             <site name="CongNghePhanMem" id="2">
                 <application path="/" applicationPool="Clr4IntegratedAppPool">
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    <virtualDirectory path="/" physicalPath="C:\Users\Hue\Desktop\trieuvy\ConCuQuanLyDuAn\CongNghePhanMem" />
-=======
-                    <virtualDirectory path="/" physicalPath="C:\Users\USER\Desktop\CONGCU\ConCuQuanLyDuAn\CongNghePhanMem" />
->>>>>>> 70d8c7065352f1965432d4351de03d02fafcfd19
-=======
                     <!-- <virtualDirectory path="/" physicalPath="C:\Users\DELL\Desktop\ConCuQuanLyDuAn\CongNghePhanMem" /> -->
                     <!-- <virtualDirectory path="/" physicalPath="C:\Users\USER\Desktop\CONGCU\ConCuQuanLyDuAn\CongNghePhanMem" /> -->
-                    <virtualDirectory path="/" physicalPath="C:\Users\DELL\Desktop\New folder (2)\ConCuQuanLyDuAn\CongNghePhanMem" />
->>>>>>> server
+<<<<<<< HEAD
+                    <virtualDirectory path="/" physicalPath="C:\Users\Hue\Desktop\vy\ConCuQuanLyDuAn\CongNghePhanMem" />
+=======
+                    <virtualDirectory path="/" physicalPath="C:\Users\USER\Desktop\CONGCU\ConCuQuanLyDuAn\CongNghePhanMem" />
+>>>>>>> 02baa514867ddf21e666830f79202a6882373d71
                 </application>
                 <bindings>
                     <binding protocol="http" bindingInformation="*:51138:localhost" />
