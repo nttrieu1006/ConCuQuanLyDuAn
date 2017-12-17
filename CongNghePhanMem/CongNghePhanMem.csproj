@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ChuDeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="QuanLyKhuyenMaiController.cs" />
     <Compile Include="Controllers\QuanLyNguoiDungController.cs" />
@@ -1566,6 +1567,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="templatebackend\bower_components\bootstrap-tour\build\" />
+    <Folder Include="Views\ChuDe\" />
     <Folder Include="Views\QuanLyKhuyenMai\" />
     <Folder Include="Views\QuanLyNguoiDung\" />
     <Folder Include="Views\QuanLyNhaCungCap\" />
