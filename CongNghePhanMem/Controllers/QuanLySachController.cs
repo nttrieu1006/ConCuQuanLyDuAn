@@ -174,5 +174,280 @@ namespace CongNghePhanMem.Controllers
             }
             return RedirectToAction("LoaiSach");
         }
+        //Tác giả
+        public ActionResult TacGia(int? page)
+        {
+            int pageSize = 30;
+            int pageNumber = (page ?? 1);
+            var tg = cn.TacGias.ToList().OrderBy(n => n.MaTG).ToPagedList(pageNumber, pageSize);
+            return View(tg);
+        }
+
+        public ActionResult XoaTG(int MaTG = 0)
+        {
+            if (ModelState.IsValid)
+            {
+                VietSach vs = cn.VietSaches.FirstOrDefault(n => n.MaTG == MaTG);
+                if (vs != null)
+                {
+                    SetAlert("Tồn tại tác giả trong quản lý viết sách!", "warning");
+                }
+                else
+                {
+                    TacGia tg = cn.TacGias.SingleOrDefault(n => n.MaTG == MaTG);
+                    cn.TacGias.Remove(tg);
+                    cn.SaveChanges();
+                    SetAlert("Xóa thành công", "success");
+                }
+
+            }
+            return RedirectToAction("TacGia");
+
+        }
+
+        [HttpGet]
+        public ActionResult ThemTG()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+
+        public ActionResult ThemTG(TacGia tg)
+        {
+            if (ModelState.IsValid)
+            {
+                TacGia t = new TacGia();
+                t.TenTG = tg.TenTG;
+                t.DiaChi = tg.DiaChi;
+                t.TieuSu = tg.TieuSu;
+                t.SDT = null;
+                cn.TacGias.Add(t);
+                cn.SaveChanges();
+                SetAlert("Thêm thành công", "success");
+
+            }
+            return RedirectToAction("TacGia");
+        }
+
+        [HttpGet]
+        public ActionResult SuaTG(int MaTG = 0)
+        {
+            TacGia tg = cn.TacGias.SingleOrDefault(n => n.MaTG == MaTG);
+            return View(tg);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaTG(TacGia tg)
+        {
+            if (ModelState.IsValid)
+            {
+                TacGia tg1 = cn.TacGias.SingleOrDefault(n => n.MaTG == tg.MaTG);
+                if (tg1 == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                tg1.TenTG = tg.TenTG;
+                tg1.DiaChi = tg.DiaChi;
+                tg1.TieuSu = tg.TieuSu;
+                cn.SaveChanges();
+                SetAlert("Sửa thành công!", "success");
+            }
+            return RedirectToAction("TacGia");
+        }
+        //Nhà xuất bản
+        public ActionResult NhaXuatBan(int? page)
+        {
+            int pageSize = 30;
+            int pageNumber = (page ?? 1);
+            var nxb = cn.NhaXuatBans.ToList().OrderBy(n => n.MaNXB).ToPagedList(pageNumber, pageSize);
+            return View(nxb);
+        }
+        public ActionResult XoaNXB(int MaNXB = 0)
+        {
+            if (ModelState.IsValid)
+            {
+                Sach sach = cn.Saches.FirstOrDefault(n => n.MaNXB == MaNXB);
+                if (sach != null)
+                {
+                    SetAlert("Tồn tại nhà xuất bản trong quản lý sách!", "warning");
+                }
+                else
+                {
+                    NhaXuatBan nxb = cn.NhaXuatBans.SingleOrDefault(n => n.MaNXB == MaNXB);
+                    cn.NhaXuatBans.Remove(nxb);
+                    cn.SaveChanges();
+                    SetAlert("Xóa thành công!", "success");
+                }
+            }
+            return RedirectToAction("NhaXuatBan");
+        }
+        [HttpGet]
+        public ActionResult ThemNXB()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemNXB(NhaXuatBan n)
+        {
+            if (ModelState.IsValid)
+            {
+                NhaXuatBan nn = new NhaXuatBan();
+                nn.TenNXB = n.TenNXB;
+                nn.DiaChi = n.DiaChi;
+                nn.Mail = n.Mail;
+                cn.NhaXuatBans.Add(nn);
+                cn.SaveChanges();
+                SetAlert("Thêm thành công!", "success");
+            }
+            return RedirectToAction("NhaXuatBan");
+        }
+
+        [HttpGet]
+        public ActionResult SuaNXB(int MaNXB = 0)
+        {
+            NhaXuatBan nxb = cn.NhaXuatBans.SingleOrDefault(n => n.MaNXB == MaNXB);
+            return View(nxb);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaNXB(NhaXuatBan nb)
+        {
+            if (ModelState.IsValid)
+            {
+                NhaXuatBan n1 = cn.NhaXuatBans.SingleOrDefault(n => n.MaNXB == nb.MaNXB);
+                if (n1 == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                n1.TenNXB = nb.TenNXB;
+                n1.DiaChi = nb.DiaChi;
+                n1.Mail = nb.Mail;
+                cn.SaveChanges();
+                SetAlert("Sửa thành công!", "success");
+            }
+            return RedirectToAction("NhaXuatBan");
+        }
+        public ActionResult XemSach(int? page)
+        {
+            int pageSize = 15;
+            int pageNumber = (page ?? 1);
+            var sach = cn.Saches.ToList().OrderBy(n => n.TenSach).ToPagedList(pageNumber, pageSize);
+            return View(sach);
+            //List<Sach> sach = cn.Saches.OrderBy(n => n.TenSach).ToList();
+            //return View(sach);
+        }
+
+        public ActionResult XoaSach(int MaSach = 0)
+        {
+            if (ModelState.IsValid)
+            {
+
+                Sach sach = cn.Saches.SingleOrDefault(n => n.MaSach == MaSach);
+
+                if (sach == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                ChiTietDonHang ct = cn.ChiTietDonHangs.Where(n => n.DonDatHang.TinhTrangGiaoHang != true && n.DonDatHang.DaThanhToan != true).FirstOrDefault(n => n.MaSach == MaSach);
+                VietSach sach1 = cn.VietSaches.FirstOrDefault(n => n.MaSach == MaSach);
+                if (ct != null || sach1 != null)
+                {
+                    SetAlert("Tồn tại sách trong đơn hàng hoặc tham gia viết sách!", "warning");
+                }
+                else
+                {
+                    cn.Saches.Remove(sach);
+                    cn.SaveChanges();
+                    SetAlert("Xóa thành công", "success");
+                }
+            }
+            return RedirectToAction("XemSach");
+        }
+        [HttpGet]
+        public ActionResult ThemSach()
+        {
+            ViewBag.MaCD = new SelectList(cn.ChuDes.ToList(), "MaCD", "TenChuDe");
+            ViewBag.MaLoai = new SelectList(cn.LoaiSaches.ToList(), "MaLoai", "TenLoai");
+            ViewBag.MaNXB = new SelectList(cn.NhaXuatBans.ToList(), "MaNXB", "TenNXB");
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemSach(Sach sach, HttpPostedFileBase fileupload)
+        {
+            if (ModelState.IsValid)
+            {
+                var fileName = Path.GetFileName(fileupload.FileName);
+                var path = Path.Combine(Server.MapPath("~/image/Sach"), fileName);
+                if (System.IO.File.Exists(path))
+                {
+                    ViewBag.ThongBao = "Hình ảnh đã tồn tại...";
+                    SetAlert("Hình ảnh đã tồn tại", "warning");
+                }
+                else
+                {
+                    Sach sach1 = new Sach();
+                    fileupload.SaveAs(path);
+                    sach1.TenSach = sach.TenSach;
+                    sach1.AnhBia = fileName;
+                    sach1.SLTon = sach.SLTon;
+                    sach1.NgayCapNhat = DateTime.Now;
+                    sach1.GiaBan = sach.GiaBan;
+                    sach1.MaCD = sach.MaCD;
+                    sach1.MaLoai = sach.MaLoai;
+                    sach1.MaNXB = sach.MaNXB;
+                    sach1.SachMoi = sach.SachMoi;
+                    sach1.MoTa = sach.MoTa;
+                    cn.Saches.Add(sach1);
+                    cn.SaveChanges();
+                    SetAlert("Thêm thành công!", "success");
+                }
+            }
+            return RedirectToAction("XemSAch", "QuanLySach");
+        }
+        [HttpGet]
+        public ActionResult SuaSach(int MaSach = 0)
+        {
+            ViewBag.MaCD = new SelectList(cn.ChuDes.ToList(), "MaCD", "TenChuDe");
+            ViewBag.MaLoai = new SelectList(cn.LoaiSaches.ToList(), "MaLoai", "TenLoai");
+            ViewBag.MaNXB = new SelectList(cn.NhaXuatBans.ToList(), "MaNXB", "TenNXB");
+            Sach sach = cn.Saches.SingleOrDefault(n => n.MaSach == MaSach);
+            if (sach == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(sach);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaSach(Sach s)
+        {
+            //if(ModelState.IsValid)
+            //{
+            Sach sach = cn.Saches.SingleOrDefault(n => n.MaSach == s.MaSach);
+            if (sach == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            sach.TenSach = s.TenSach;
+            sach.SLTon = s.SLTon;
+            sach.GiaBan = s.GiaBan;
+            sach.MaCD = s.MaCD;
+            sach.MaLoai = s.MaLoai;
+            sach.MaNXB = s.MaNXB;
+            sach.SachMoi = s.SachMoi;
+            sach.MoTa = s.MoTa;
+            cn.SaveChanges();
+            SetAlert("Sửa thành công!", "QuanLySach");
+            //}
+            return RedirectToAction("XemSach", "QuanLySach");
+        }
     }
 }
