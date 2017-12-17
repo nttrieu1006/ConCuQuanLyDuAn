@@ -36,6 +36,47 @@ namespace CongNghePhanMem.Controllers
             int pageNumber = (page ?? 1);
             var dh = cn.DonDatHangs.Where(n => n.TinhTrangGiaoHang == null || n.DaThanhToan == null).ToList().OrderBy(n => n.MaDH).ToPagedList(pageNumber, pageSize);
             return View(dh);
+        }  //xóa
+        public ActionResult XoaDH(int MaDH = 0)
+        {
+            if (ModelState.IsValid)
+            {
+                List<ChiTietDonHang> ls = cn.ChiTietDonHangs.Where(n => n.MaDH == MaDH).ToList();
+                for (int i = 0; i < ls.Count; i++)
+                {
+                    ChiTietDonHang ct = cn.ChiTietDonHangs.FirstOrDefault(n => n.MaDH == MaDH);
+                    cn.ChiTietDonHangs.Remove(ct);
+                    cn.SaveChanges();
+                }
+                DonDatHang dh = cn.DonDatHangs.SingleOrDefault(n => n.MaDH == MaDH);
+                cn.DonDatHangs.Remove(dh);
+                cn.SaveChanges();
+                SetAlert("Xóa thành công!", "success");
+            }
+            return RedirectToAction("DonHang");
+
+        }
+        //Sửa
+        [HttpGet]
+        public ActionResult SuaDH(int MaDH = 0)
+        {
+            DonDatHang dh = cn.DonDatHangs.SingleOrDefault(n => n.MaDH == MaDH);
+            return View(dh);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaDH(DonDatHang dh)
+        {
+            if (ModelState.IsValid)
+            {
+                DonDatHang dhh = cn.DonDatHangs.SingleOrDefault(n => n.MaDH == dh.MaDH);
+                dhh.DaThanhToan = dh.DaThanhToan;
+                dhh.TinhTrangGiaoHang = dh.TinhTrangGiaoHang;
+                dhh.NgayGiao = dh.NgayGiao;
+                cn.SaveChanges();
+                SetAlert("Sửa thành công", "success");
+            }
+            return RedirectToAction("DonHang");
         }
     }
 }
