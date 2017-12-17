@@ -1582,6 +1582,7 @@
     <Content Include="Views\ChuDe\SachTheoChuDe.cshtml" />
     <Content Include="Views\DonHang\ChiTietDH.cshtml" />
     <Content Include="Views\DonHang\ChiTietDHDD.cshtml" />
+    <Content Include="Views\DonHang\DonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
