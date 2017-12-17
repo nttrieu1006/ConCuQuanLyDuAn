@@ -1561,6 +1561,7 @@
     <Content Include="Views\QuanLyTinTuc\TraLoi.cshtml" />
     <Content Include="Views\QuanLyTinTuc\YKien.cshtml" />
     <Content Include="Views\QuanLySach\ChuDe.cshtml" />
+    <Content Include="Views\QuanLySach\ThemCD.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
