@@ -26,8 +26,9 @@ namespace CongNghePhanMem.Controllers
             {
                 TempData["AlertType"] = "alert-danger";
             }
+        }
             [HttpGet]
-        public ActionResult DangNhap()
+              public ActionResult DangNhap()
         {
             return View();
         }

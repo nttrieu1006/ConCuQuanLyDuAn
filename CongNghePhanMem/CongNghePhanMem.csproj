@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiSachController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
+    <Compile Include="Controllers\NXBController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\TacGiaController.cs" />
     <Compile Include="Controllers\TinTucController.cs" />
@@ -1580,6 +1581,7 @@
     <Folder Include="Views\ChuDe\" />
     <Folder Include="Views\LoaiSach\" />
     <Folder Include="Views\NguoiDung\" />
+    <Folder Include="Views\NXB\" />
     <Folder Include="Views\QuanLyKhuyenMai\" />
     <Folder Include="Views\QuanLyNguoiDung\" />
     <Folder Include="Views\QuanLyNhaCungCap\" />
