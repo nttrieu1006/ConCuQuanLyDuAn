@@ -171,6 +171,7 @@
     <Compile Include="Controllers\ChuDeController.cs" />
     <Compile Include="Controllers\DonHangController.cs" />
     <Compile Include="Controllers\GiaoDienController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiSachController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
@@ -1584,6 +1585,7 @@
     <Folder Include="Views\ChuDe\" />
     <Folder Include="Views\DonHang\" />
     <Folder Include="Views\GiaoDien\" />
+    <Folder Include="Views\GioHang\" />
     <Folder Include="Views\LoaiSach\" />
     <Folder Include="Views\NguoiDung\" />
     <Folder Include="Views\NXB\" />
