@@ -65,5 +65,24 @@ namespace CongNghePhanMem.Controllers
 
 
         }
+        public ActionResult XoaYKien(int MaPH = 0)
+        {
+            if (ModelState.IsValid)
+            {
+                PhanHoi ph = cn.PhanHois.SingleOrDefault(n => n.MaPH == MaPH);
+                cn.PhanHois.Remove(ph);
+                cn.SaveChanges();
+                SetAlert("Xóa thành công", "success");
+            }
+            return View();
+        }
+        //Tin Tức
+        public ActionResult TinTuc(int? page)
+        {
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            var tt = cn.TinTucs.ToList().OrderBy(n => n.MaTT).ToPagedList(pageNumber, pageSize);
+            return View(tt);
+        }
     }
 }
