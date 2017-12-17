@@ -169,7 +169,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\QuanLyKhuyenMaiController.cs" />
+    <Compile Include="QuanLyKhuyenMaiController.cs" />
     <Compile Include="Controllers\QuanLyNguoiDungController.cs" />
     <Compile Include="Controllers\QuanLyNhaCungCapController.cs" />
     <Compile Include="Controllers\QuanLySachController.cs" />
@@ -1554,11 +1554,11 @@
     <Content Include="Views\ThongKe\Index.cshtml" />
     <Content Include="Views\ThongKe\ThongKeDTTheoTG.cshtml" />
     <Content Include="Views\ThongKe\ThongKeTiTrong.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="templatebackend\bower_components\bootstrap-tour\build\" />
-    <Folder Include="Views\Admin\" />
     <Folder Include="Views\QuanLyKhuyenMai\" />
     <Folder Include="Views\QuanLyNguoiDung\" />
     <Folder Include="Views\QuanLyNhaCungCap\" />
