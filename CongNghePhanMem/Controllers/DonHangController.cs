@@ -78,5 +78,49 @@ namespace CongNghePhanMem.Controllers
             }
             return RedirectToAction("DonHang");
         }
+        //Chi tiết
+        public ActionResult ChiTietDH(int? page, int MaDH = 0)
+        {
+            int pageSize = 25;
+            int pageNumber = (page ?? 1);
+            var ct = cn.ChiTietDonHangs.Where(n => n.MaDH == MaDH).ToList().OrderBy(n => n.MaDH).ToPagedList(pageNumber, pageSize);
+            return View(ct);
+        }
+
+        //Đơn hàng đã duyệt
+        public ActionResult DonHangDD(int? page)
+        {
+            int pageSize = 25;
+            int pageNumber = (page ?? 1);
+            var dh = cn.DonDatHangs.Where(n => n.TinhTrangGiaoHang == true && n.DaThanhToan == true).ToList().OrderBy(n => n.MaDH).ToPagedList(pageNumber, pageSize);
+            return View(dh);
+        }
+        public ActionResult XoaDHDD(int MaDH = 0)
+        {
+            if (ModelState.IsValid)
+            {
+                for (int i = 0; i < cn.ChiTietDonHangs.Count(n => n.MaDH == MaDH); i++)
+                {
+                    ChiTietDonHang ct = cn.ChiTietDonHangs.SingleOrDefault(n => n.MaDH == MaDH);
+                    cn.ChiTietDonHangs.Remove(ct);
+                    cn.SaveChanges();
+                }
+                DonDatHang dh = cn.DonDatHangs.SingleOrDefault(n => n.MaDH == MaDH);
+                cn.DonDatHangs.Remove(dh);
+                cn.SaveChanges();
+                SetAlert("Xóa thành công!", "success");
+            }
+            return RedirectToAction("DonHangDD");
+
+        }
+
+        //Chi tiết
+        public ActionResult ChiTietDHDD(int MaDH = 0)
+        {
+            List<ChiTietDonHang> ct = cn.ChiTietDonHangs.Where(n => n.MaDH == MaDH).ToList();
+            return View(ct);
+        }
     }
+
+}
 }
