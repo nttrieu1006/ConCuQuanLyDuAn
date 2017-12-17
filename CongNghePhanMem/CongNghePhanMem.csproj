@@ -1568,6 +1568,7 @@
     <Content Include="Views\QuanLySach\ThemCD.cshtml" />
     <Content Include="Views\Search\KetQuaSearch.cshtml" />
     <Content Include="Views\TinTuc\TinTucPartial.cshtml" />
+    <Content Include="Views\TinTuc\TinTuc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
