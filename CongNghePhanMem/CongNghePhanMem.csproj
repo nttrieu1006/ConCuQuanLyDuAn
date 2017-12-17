@@ -1578,11 +1578,11 @@
     <Content Include="Views\TinTuc\TinTuc.cshtml" />
     <Content Include="Views\TacGia\TenTacGiaPartial.cshtml" />
     <Content Include="Views\TacGia\SachTheoTacGia.cshtml" />
+    <Content Include="Views\ChuDe\ChuDePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="templatebackend\bower_components\bootstrap-tour\build\" />
-    <Folder Include="Views\ChuDe\" />
     <Folder Include="Views\DonHang\" />
     <Folder Include="Views\GiaoDien\" />
     <Folder Include="Views\GioHang\" />
