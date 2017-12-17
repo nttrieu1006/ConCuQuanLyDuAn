@@ -1567,6 +1567,7 @@
     <Content Include="Views\QuanLySach\ChuDe.cshtml" />
     <Content Include="Views\QuanLySach\ThemCD.cshtml" />
     <Content Include="Views\Search\KetQuaSearch.cshtml" />
+    <Content Include="Views\TinTuc\TinTucPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1576,7 +1577,6 @@
     <Folder Include="Views\QuanLyNguoiDung\" />
     <Folder Include="Views\QuanLyNhaCungCap\" />
     <Folder Include="Views\TacGia\" />
-    <Folder Include="Views\TinTuc\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
