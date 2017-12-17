@@ -90,5 +90,31 @@ namespace CongNghePhanMem.Controllers
             return RedirectToAction("NhaCungCap", "QuanLyNhaCungCap");
 
         }
+        //Xóa nhà cung cấp
+        public ActionResult XoaNCC(int MaNCC = 0)
+        {
+            if (ModelState.IsValid)
+            {
+                HopDongNCC hd = cn.HopDongNCCs.SingleOrDefault(n => n.MaNCC == MaNCC);
+                if (hd != null)
+                {
+                    SetAlert("Nhà cung cấp tồn tại trong hợp đồng!", "success");
+                }
+                else
+                {
+                    NhaCungCap ncc = cn.NhaCungCaps.SingleOrDefault(n => n.MaNCC == MaNCC);
+                    if (ncc == null)
+                    {
+                        Response.StatusCode = 404;
+                        return null;
+                    }
+                    cn.NhaCungCaps.Remove(ncc);
+                    cn.SaveChanges();
+                    SetAlert("Xóa thành công", "success");
+                }
+
+            }
+            return RedirectToAction("NhaCungCap", "QuanLyNhaCungCap");
+        }
     }   
 }
