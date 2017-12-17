@@ -1551,6 +1551,7 @@
     <Content Include="Views\Home\LienHe.cshtml" />
     <Content Include="Views\Home\ThanhToan.cshtml" />
     <Content Include="Views\Home\Map.cshtml" />
+    <Content Include="Views\ThongKe\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1561,7 +1562,6 @@
     <Folder Include="Views\QuanLyNhaCungCap\" />
     <Folder Include="Views\QuanLySach\" />
     <Folder Include="Views\QuanLyTinTuc\" />
-    <Folder Include="Views\ThongKe\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
