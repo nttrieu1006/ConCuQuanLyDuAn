@@ -20,17 +20,16 @@
         <th>Thao tác</th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenChuDe)
-            </td>
-            <td>
-                @Html.ActionLink("Xóa", "XoaCD", new { @MaCD = item.MaCD, @onclick = "return confirm('Bạn chắc chắn muốn xóa?')" })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenChuDe)
+        </td>
+        <td>
+            @Html.ActionLink("Xóa", "XoaCD", new { @MaCD=item.MaCD, @onclick = "return confirm('Bạn chắc chắn muốn xóa?')" })
+        </td>
+    </tr>
+}
 
 </table>
 
