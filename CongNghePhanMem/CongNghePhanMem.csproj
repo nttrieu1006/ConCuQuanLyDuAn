@@ -1560,6 +1560,7 @@
     <Content Include="Views\QuanLyTinTuc\ThemTT.cshtml" />
     <Content Include="Views\QuanLyTinTuc\TraLoi.cshtml" />
     <Content Include="Views\QuanLyTinTuc\YKien.cshtml" />
+    <Content Include="Views\QuanLySach\ChuDe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1567,7 +1568,6 @@
     <Folder Include="Views\QuanLyKhuyenMai\" />
     <Folder Include="Views\QuanLyNguoiDung\" />
     <Folder Include="Views\QuanLyNhaCungCap\" />
-    <Folder Include="Views\QuanLySach\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
