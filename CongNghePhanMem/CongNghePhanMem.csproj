@@ -1588,6 +1588,7 @@
     <Content Include="Views\GiaoDien\DiaChi.cshtml" />
     <Content Include="Views\GiaoDien\DienThoai.cshtml" />
     <Content Include="Views\GiaoDien\FaceBook.cshtml" />
+    <Content Include="Views\GiaoDien\Logo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
