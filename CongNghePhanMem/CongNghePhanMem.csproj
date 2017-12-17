@@ -1557,6 +1557,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\QuanLyTinTuc\SuaTT.cshtml" />
     <Content Include="Views\QuanLyTinTuc\TinTuc.cshtml" />
+    <Content Include="Views\QuanLyTinTuc\ThemTT.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
