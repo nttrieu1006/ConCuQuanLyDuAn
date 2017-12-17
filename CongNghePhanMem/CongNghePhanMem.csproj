@@ -167,6 +167,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -300,6 +301,8 @@
     <Content Include="Content\js\simplePlayer.js" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\TT\ttkhm.html" />
+    <Content Include="Controllers\Admin\bodycss.css" />
+    <Content Include="Controllers\Admin\css\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1546,6 +1549,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="templatebackend\bower_components\bootstrap-tour\build\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
