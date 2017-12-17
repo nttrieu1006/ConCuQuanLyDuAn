@@ -121,5 +121,10 @@ namespace CongNghePhanMem.Controllers
             var lst = cn.ChiTietKhuyenMais.Where(n => n.MaKM == MaKM).ToList().OrderBy(n => n.MaSach).ToPagedList(pageNumber, pageSize);
             return View(lst);
         }
+        public PartialViewResult SachRight()
+        {
+            var lst = cn.Saches.Where(n => n.GiaKhuyenMai != null).Take(5).ToList();
+            return PartialView(lst);
+        }
     }
 }
