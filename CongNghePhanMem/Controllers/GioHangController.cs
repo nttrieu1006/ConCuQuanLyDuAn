@@ -103,5 +103,72 @@ namespace CongNghePhanMem.Controllers
             }
 
         }
+        //xóa
+        public ActionResult XoaGioHang(int iMaSP)
+        {
+            Sach sach = cn.Saches.SingleOrDefault(n => n.MaSach == iMaSP);
+            if (sach == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            List<GioHang> lstGioHang = LayGioHang();
+            GioHang sanpham = lstGioHang.SingleOrDefault(n => n.iMaSach == iMaSP);
+            if (sanpham != null)
+            {
+                lstGioHang.RemoveAll(n => n.iMaSach == iMaSP);
+                SetAlert("Xóa giỏ hàng thành công!", "success");
+
+
+            }
+            if (lstGioHang.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("GioHang");
+        }
+        public ActionResult GioHang()
+        {
+            if (Session["GioHang"] == null)
+            {
+                RedirectToAction("Index", "Home");
+            }
+            List<GioHang> lstGioHang = LayGioHang();
+            ViewBag.Tong = TongTien();
+            ViewBag.sl = TongSoLuong();
+            return View(lstGioHang);
+        }
+        //Tính tổng sl
+        private int TongSoLuong()
+        {
+            int iTongSoLuong = 0;
+            List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
+            if (lstGioHang != null)
+            {
+                iTongSoLuong = lstGioHang.Sum(n => n.iSoLuong);
+            }
+            return iTongSoLuong;
+        }
+        public double TongTien()
+        {
+            double dTongTien = 0;
+            List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
+            if (lstGioHang != null)
+            {
+                dTongTien = lstGioHang.Sum(n => n.dThanhTien);
+            }
+            return dTongTien;
+
+        }
+        public ActionResult GioHangPartial()
+        {
+            if (TongSoLuong() == 0)
+            {
+                return PartialView();
+            }
+            ViewBag.TongSoLuong = TongSoLuong();
+            ViewBag.TongTien = TongTien();
+            return PartialView();
+        }
     }
 }
