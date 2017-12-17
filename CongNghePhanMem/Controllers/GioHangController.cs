@@ -73,5 +73,35 @@ namespace CongNghePhanMem.Controllers
             }
 
         }
+        //sửa
+        public ActionResult SuaGioHang(int iMaSP, FormCollection f)
+        {
+            Sach sach = cn.Saches.SingleOrDefault(n => n.MaSach == iMaSP);
+            if (sach == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            //Bắt lỗi
+            if (int.Parse(f["txtSoLuong"].ToString()) > sach.SLTon)
+            {
+                ViewBag.BatLoi = "Số lượng không đủ";
+                SetAlert("Số lượng sách không đủ!", "warning");
+                return Redirect("GioHang");
+            }
+            else
+            {
+                List<GioHang> lstGioHang = LayGioHang();
+                GioHang sanpham = lstGioHang.SingleOrDefault(n => n.iMaSach == iMaSP);
+                if (sanpham != null)
+                {
+                    sanpham.iSoLuong = int.Parse(f["txtSoLuong"].ToString());
+                }
+                ViewBag.BatLoi = "Cập nhật thành công";
+                SetAlert("Cập nhật thành công!", "success");
+                return RedirectToAction("GioHang");
+            }
+
+        }
     }
 }
