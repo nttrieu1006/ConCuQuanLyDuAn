@@ -67,5 +67,34 @@ namespace CongNghePhanMem.Controllers
             Session["TenDangNhap"] = null;
             return RedirectToAction("LoginAdmin", "Admin");
         }
+        [HttpGet]
+        public ActionResult SuaFB()
+        {
+            GiaoDien gd = cn.GiaoDiens.SingleOrDefault(n => n.ID == 5);
+            if (gd == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+
+            }
+            return View(gd);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaFB(GiaoDien gd)
+        {
+            if (ModelState.IsValid)
+            {
+                GiaoDien gd1 = cn.GiaoDiens.SingleOrDefault(n => n.ID == gd.ID);
+                gd1.ThuocTinh = gd.ThuocTinh;
+                gd1.GiaTri = gd.GiaTri;
+                gd1.GiaTri1 = gd.GiaTri1;
+                cn.SaveChanges();
+                SetAlert("Sửa địa chỉ mạng xã hội thành công!", "success");
+
+            }
+            return View();
+
+        }
     }
 }
