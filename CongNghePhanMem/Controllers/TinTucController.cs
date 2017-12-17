@@ -20,5 +20,15 @@ namespace CongNghePhanMem.Controllers
             var lst = cn.TinTucs.ToList();
             return PartialView(lst);
         }
+        public ActionResult TinTuc(int MaTT = 0)
+        {
+            TinTuc tt = cn.TinTucs.SingleOrDefault(n => n.MaTT == MaTT);
+            if (tt == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(tt);
+        }
     }
 }
