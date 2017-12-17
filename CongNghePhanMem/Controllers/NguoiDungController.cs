@@ -26,6 +26,31 @@ namespace CongNghePhanMem.Controllers
             {
                 TempData["AlertType"] = "alert-danger";
             }
+            [HttpGet]
+        public ActionResult DangNhap()
+        {
+            return View();
         }
+        [HttpPost]
+        public ActionResult DangNhap(FormCollection f, string Command)
+        {
+            if (Command == "Đăng nhập")
+            {
+                string sTen = f["txtTen"].ToString();
+                string sPass = f["txtPass"].ToString();
+                NguoiDung nd = cn.NguoiDungs.SingleOrDefault(n => n.TenDangNhap == sTen && n.MatKhau == sPass);
+                if (nd != null)
+                {
+                    Session["TenDangNhap"] = nd;
+                    ViewBag.NguoiDung = nd.MaND;
+                    SetAlert("Đăng nhập thành công!", "success");
+                    return View();
+                }
+                SetAlert("Sai tài khoản, đăng nhập thất bại!", "warning");
+                return View();
+            }
+            return null;
+        }
+    }
     }
 }
