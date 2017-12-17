@@ -42,5 +42,23 @@ namespace CongNghePhanMem.Controllers
             GiaoDien fb = cn.GiaoDiens.SingleOrDefault(n => n.ID == 5);
             return PartialView(fb);
         }
+        public ActionResult Ykien(int? page)
+        {
+            NguoiDung nd = (NguoiDung)Session["TenDangNhap"];
+            if (Session["TenDangNhap"] == null || Session["TenDangNhap"].ToString() == "")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                int pageSize = 2;
+                int pageNumber = (page ?? 1);
+                var lst = cn.PhanHois.Where(n => n.MaND == nd.MaND).ToList().OrderBy(n => n.MaPH).ToPagedList(pageNumber, pageSize);
+                ViewBag.Ten = nd.HoTen;
+                ViewBag.Anh = nd.AnhDaiDien;
+                return View(lst);
+            }
+        }
+
     }
 }
