@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\TacGiaController.cs" />
+    <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="QuanLyKhuyenMaiController.cs" />
     <Compile Include="Controllers\QuanLyNguoiDungController.cs" />
     <Compile Include="Controllers\QuanLyNhaCungCapController.cs" />
@@ -1575,6 +1576,7 @@
     <Folder Include="Views\QuanLyNhaCungCap\" />
     <Folder Include="Views\Search\" />
     <Folder Include="Views\TacGia\" />
+    <Folder Include="Views\TinTuc\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
