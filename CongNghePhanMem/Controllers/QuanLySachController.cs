@@ -125,5 +125,54 @@ namespace CongNghePhanMem.Controllers
             }
             return RedirectToAction("VietSach", "QuanLySach");
         }
+        //Loại sách
+
+        public ActionResult LoaiSach(int? page)
+        {
+            int pageSize = 25;
+            int pageNumber = (page ?? 1);
+            var ls = cn.LoaiSaches.ToList().OrderBy(n => n.MaLoai).ToPagedList(pageNumber, pageSize);
+            return View(ls);
+        }
+
+        public ActionResult XoaLoai(int MaLoai = 0)
+        {
+            if (ModelState.IsValid)
+            {
+                Sach sach = cn.Saches.FirstOrDefault(n => n.MaLoai == MaLoai);
+                if (sach != null)
+                {
+                    SetAlert("Tồn tại loại trong quản lý sách", "warning");
+                }
+                else
+                {
+                    LoaiSach ls = cn.LoaiSaches.SingleOrDefault(n => n.MaLoai == MaLoai);
+                    cn.LoaiSaches.Remove(ls);
+                    cn.SaveChanges();
+                    SetAlert("Xóa thành công!", "success");
+                }
+
+            }
+            return RedirectToAction("LoaiSach");
+        }
+        [HttpGet]
+        public ActionResult ThemLoai()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemLoai(LoaiSach ls)
+        {
+            if (ModelState.IsValid)
+            {
+                LoaiSach ls1 = new LoaiSach();
+                ls1.TenLoai = ls.TenLoai;
+                cn.LoaiSaches.Add(ls1);
+                cn.SaveChanges();
+                SetAlert("Thêm thành công!", "success");
+            }
+            return RedirectToAction("LoaiSach");
+        }
     }
 }
