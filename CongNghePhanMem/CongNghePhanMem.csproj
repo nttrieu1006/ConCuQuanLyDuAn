@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ChuDeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoaiSachController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\TacGiaController.cs" />
     <Compile Include="Controllers\TinTucController.cs" />
@@ -1576,6 +1577,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="templatebackend\bower_components\bootstrap-tour\build\" />
     <Folder Include="Views\ChuDe\" />
+    <Folder Include="Views\LoaiSach\" />
     <Folder Include="Views\QuanLyKhuyenMai\" />
     <Folder Include="Views\QuanLyNguoiDung\" />
     <Folder Include="Views\QuanLyNhaCungCap\" />
