@@ -1559,6 +1559,7 @@
     <Content Include="Views\QuanLyTinTuc\TinTuc.cshtml" />
     <Content Include="Views\QuanLyTinTuc\ThemTT.cshtml" />
     <Content Include="Views\QuanLyTinTuc\TraLoi.cshtml" />
+    <Content Include="Views\QuanLyTinTuc\YKien.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
