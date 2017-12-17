@@ -56,5 +56,23 @@ namespace CongNghePhanMem.Controllers
             }
             return RedirectToAction("TinhTrang", "QuanLyNguoiDung");
         }
+        [HttpGet]
+        public ActionResult SuaTT(int MaTT = 0)
+        {
+            TinhTrangNguoiDung nd = cn.TinhTrangNguoiDungs.SingleOrDefault(n => n.MaTT == MaTT);
+            return View(nd);
+        }
+        [HttpPost]
+        public ActionResult SuaTT(TinhTrangNguoiDung nd)
+        {
+            if (ModelState.IsValid)
+            {
+                TinhTrangNguoiDung nd1 = cn.TinhTrangNguoiDungs.SingleOrDefault(n => n.MaTT == nd.MaTT);
+                nd1.TenTT = nd.TenTT;
+                cn.SaveChanges();
+                SetAlert("Sửa thành công!", "success");
+            }
+            return RedirectToAction("TinhTrang", "QuanLyNguoiDung");
+        }
     }
 }
