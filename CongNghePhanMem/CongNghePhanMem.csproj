@@ -1592,6 +1592,7 @@
     <Content Include="Views\GiaoDien\TieuDe.cshtml" />
     <Content Include="Views\GiaoDien\Ykien.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
