@@ -169,6 +169,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="QuanLyKhuyenMaiController.cs" />
     <Compile Include="Controllers\QuanLyNguoiDungController.cs" />
     <Compile Include="Controllers\QuanLyNhaCungCapController.cs" />
@@ -1569,6 +1570,7 @@
     <Folder Include="Views\QuanLyKhuyenMai\" />
     <Folder Include="Views\QuanLyNguoiDung\" />
     <Folder Include="Views\QuanLyNhaCungCap\" />
+    <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
