@@ -169,6 +169,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuanLyKhuyenMaiController.cs" />
     <Compile Include="Controllers\ThongKeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1551,6 +1552,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="templatebackend\bower_components\bootstrap-tour\build\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="Views\QuanLyKhuyenMai\" />
     <Folder Include="Views\ThongKe\" />
   </ItemGroup>
   <ItemGroup>
