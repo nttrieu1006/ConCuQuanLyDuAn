@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuanLyKhuyenMaiController.cs" />
+    <Compile Include="Controllers\QuanLyNguoiDungController.cs" />
     <Compile Include="Controllers\QuanLyTinTucController.cs" />
     <Compile Include="Controllers\ThongKeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1554,6 +1555,7 @@
     <Folder Include="templatebackend\bower_components\bootstrap-tour\build\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\QuanLyKhuyenMai\" />
+    <Folder Include="Views\QuanLyNguoiDung\" />
     <Folder Include="Views\QuanLyTinTuc\" />
     <Folder Include="Views\ThongKe\" />
   </ItemGroup>
